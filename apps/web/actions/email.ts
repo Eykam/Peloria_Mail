@@ -87,12 +87,16 @@ export async function sendTestEmailAction(formData: FormData) {
     to: formData.get('to'),
   });
 
+  
   const cookieStore = cookies();
+  console.log(cookieStore)
   const configResult = envelopeConfigSchema.safeParse({
-    provider: cookieStore.get(MAILY_PROVIDER)?.value,
-    apiKey: cookieStore.get(MAILY_API_KEY)?.value,
-    endpoint: cookieStore.get(MAILY_ENDPOINT)?.value,
+    provider: process.env.EMAIL_PROVIDER || "",
+    apiKey: process.env.RESEND_API_KEY || "",
+    endpoint: process.env.ENDPOINT || "",
   });
+
+  // console.log("here2")
 
   if (!configResult.success) {
     return {
@@ -106,6 +110,8 @@ export async function sendTestEmailAction(formData: FormData) {
       },
     };
   }
+
+  console.log("here3")
 
   if (!result.success) {
     return {

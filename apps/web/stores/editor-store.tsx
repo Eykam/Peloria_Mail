@@ -31,9 +31,6 @@ interface EditorState extends EditorProps {
   setTo: (to: string) => void;
   setReplyTo: (replyTo: string) => void;
 
-  setProvider: (provider: string) => void;
-  setApiKey: (apiKey: string) => void;
-  setEndpoint: (endpoint: string) => void;
 }
 
 export type EditorStore = ReturnType<typeof createEditorStore>;
@@ -58,12 +55,13 @@ const createEditorStore = (initProps?: Partial<EditorProps>) => {
 
     previewText: '',
     subject: '',
-    from: '',
+    from: 'onboarding@resend.dev',
     to: '',
-    replyTo: '',
-
-    apiKey: undefined,
-    endpoint: undefined,
+    replyTo: undefined,
+    
+    provider:"resend",
+    apiKey: "re_9FgK3AYV_3if9iceQYZM3qRdhB9x34WS3",
+    endpoint: "",
   };
 
   return createStore<EditorState>()((set) => ({
@@ -89,16 +87,6 @@ const createEditorStore = (initProps?: Partial<EditorProps>) => {
     },
     setReplyTo: (replyTo) => {
       set(() => ({ replyTo }));
-    },
-
-    setProvider: (provider) => {
-      set(() => ({ provider }));
-    },
-    setApiKey: (apiKey) => {
-      set(() => ({ apiKey }));
-    },
-    setEndpoint: (endpoint) => {
-      set(() => ({ endpoint }));
     },
   }));
 };

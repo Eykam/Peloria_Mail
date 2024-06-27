@@ -10,7 +10,7 @@ import {
   MAILY_ENDPOINT,
   MAILY_PROVIDER,
 } from '@/utils/constants';
-import { ApiConfiguration } from '@/components/api-config';
+// import { ApiConfiguration } from '@/components/api-config';
 import { SendTestEmail } from '@/components/send-test-email';
 
 export const dynamic = 'force-dynamic';
@@ -37,10 +37,10 @@ export default function TemplatePage() {
     <EditorProvider apiKey={apiKey} endpoint={endpoint} provider={provider}>
       <div className="flex items-center justify-between gap-1.5">
         <div className="flex items-center gap-1.5">
-          <ApiConfiguration />
+          {/* <ApiConfiguration /> */}
           <PreviewEmail />
-          <CopyEmailHtml />
           <SendTestEmail />
+          {/* <CopyEmailHtml /> */}
         </div>
         <SaveEmail />
       </div>

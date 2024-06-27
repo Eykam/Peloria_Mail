@@ -8,6 +8,7 @@ import { sendTestEmailAction } from '@/actions/email';
 import { useServerAction } from '@/utils/use-server-action';
 import { useEditorContext } from '@/stores/editor-store';
 import { catchActionError } from '@/actions/error';
+import { envelopeConfigAction } from '@/actions/config';
 
 interface SubmitButtonProps {
   disabled?: boolean;
@@ -36,6 +37,7 @@ function SubmitButton(props: SubmitButtonProps) {
 export function SendTestEmail() {
   const { json, previewText, subject, from, replyTo, to, apiKey } =
     useEditorContext((s) => s, shallow);
+    
 
   const [action] = useServerAction(
     catchActionError(sendTestEmailAction),
@@ -44,6 +46,7 @@ export function SendTestEmail() {
       const { error } = result!;
       if (error) {
         toast.error(error.message || 'Something went wrong');
+        console.log(previewText,subject, from, replyTo, to, apiKey)
         return;
       }
 

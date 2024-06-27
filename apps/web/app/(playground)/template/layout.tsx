@@ -19,7 +19,7 @@ export default async function PlaygroundLayout(props: PlaygroundLayoutProps) {
   } = await supabase.auth.getUser();
 
   if (!user) {
-    redirect('/playground');
+    redirect('/login');
   }
 
   const mails = await supabase

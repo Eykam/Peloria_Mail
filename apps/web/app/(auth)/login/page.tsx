@@ -6,24 +6,6 @@ import { cn } from '@/utils/classname';
 import { GoogleLoginButton } from '@/components/auth/google-login-button';
 import { EmailLoginForm } from '@/components/auth/email-login-form';
 
-export const metadata: Metadata = {
-  title: 'Login - Maily',
-  description: 'Login to your Maily account.',
-  openGraph: {
-    siteName: 'Maily',
-    title: 'Login - Maily',
-    description: 'Login to your Maily account.',
-    type: 'website',
-    url: 'https://maily.to',
-    locale: 'en-US',
-    images: {
-      url: '/og-image.png',
-      width: 1200,
-      height: 630,
-      alt: 'Maily Preview',
-    },
-  },
-};
 
 export default function LoginPage() {
   return (
@@ -44,23 +26,20 @@ export default function LoginPage() {
             <h1 className="text-2xl font-semibold tracking-tight">
               Login / Register
             </h1>
-            <p className="text-muted-foreground text-sm">
-              You can continue with your GitHub / Google account.
-            </p>
           </div>
 
           <EmailLoginForm />
 
-          <div className="flex w-full items-center gap-2 py-6 text-sm text-gray-600">
+           <div className="flex w-full items-center gap-2 py-6 text-sm text-gray-600">
             <div className="h-px w-full bg-gray-200" />
             OR
             <div className="h-px w-full bg-gray-200" />
           </div>
 
           <div className="flex flex-col gap-2">
-            <GithubLoginButton />
+            {/* <GithubLoginButton /> */}
             <GoogleLoginButton />
-          </div>
+          </div> 
         </div>
       </div>
     </div>

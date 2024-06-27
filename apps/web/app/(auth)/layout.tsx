@@ -27,7 +27,7 @@ export default async function AuthLayout(props: AuthLayoutProps) {
     data: { user },
   } = await supabase.auth.getUser();
 
-  if (user) return redirect('/playground');
+  if (user) return redirect('/template');
 
   return <div className="mx-auto max-w-[680px]">{children}</div>;
 }

@@ -31,7 +31,7 @@ function SubmitButton(props: SubmitButtonProps) {
       ) : (
         <Save className="inline-block shrink-0 sm:mr-1" size={16} />
       )}
-      <span className="hidden sm:inline-block">Save</span>
+      <span className="hidden sm:inline-block">Save Template</span>
     </button>
   );
 }
