@@ -36,7 +36,7 @@ function SubmitButton(props: SubmitButtonProps) {
           size={16}
         />
       ) : null}
-      <span className="hidden sm:inline-block">Delete</span>
+      <span className="hidden sm:inline-block">Delete Template</span>
     </button>
   );
 }

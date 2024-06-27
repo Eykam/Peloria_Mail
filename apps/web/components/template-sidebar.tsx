@@ -48,7 +48,7 @@ export function TemplateSidebar(props: TemplateSidebarProps) {
         )}
         href="/template"
       >
-        + New Email
+        + New Template
       </NextLink>
 
       <div className="border-t py-2">
