@@ -11,7 +11,7 @@ const configSchema = z.object({
 
 export const config = configSchema.parse({
   appUrl:
-    process.env.NODE_ENV === 'production'
+    process.env.ENV_TYPE === 'production'
       ? process.env.NEXT_PUBLIC_VERCEL_URL
       : 'http://localhost:3000',
   googleTrackingId: process.env.NEXT_PUBLIC_GA_TRACKING_ID,
