@@ -7,5 +7,6 @@ module.exports = {
     '@typescript-eslint/no-unsafe-argument': 'off',
     '@typescript-eslint/no-misused-promises': 'off',
     'import/no-cycle': 'off',
+    "@typescript-eslint/no-unused-vars":"off"
   },
 };

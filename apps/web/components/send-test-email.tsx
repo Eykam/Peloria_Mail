@@ -46,7 +46,6 @@ export function SendTestEmail() {
       const { error } = result!;
       if (error) {
         toast.error(error.message || 'Something went wrong');
-        console.log(previewText,subject, from, replyTo, to, apiKey)
         return;
       }
 
