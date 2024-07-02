@@ -14,12 +14,14 @@ export type MailsRowType = Database['public']['Tables']['mails']['Row'];
 
 interface TemplateSidebarProps {
   mails: MailsRowType[];
+  userId:string;
 }
 
 export function TemplateSidebar(props: TemplateSidebarProps) {
-  const { mails } = props;
+  const { mails, userId } = props;
   const { templateId } = useParams();
   const router = useRouter();
+  
 
   const handleEmailDuplicate = (oldTemplateId: string) => {
     const template = mails.find((mail) => mail.id === oldTemplateId);
@@ -59,7 +61,7 @@ export function TemplateSidebar(props: TemplateSidebarProps) {
             {mails.map((template) => {
               return (
                 <li
-                  className="group relative flex items-center"
+                  className={cn("group relative flex items-center", userId === template.user_id && "bg-green-400/80")}
                   key={template.id}
                 >
                   <NextLink

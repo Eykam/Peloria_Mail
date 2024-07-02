@@ -29,7 +29,7 @@ export default async function PlaygroundLayout(props: PlaygroundLayoutProps) {
 
   return (
     <div className="flex h-screen w-screen items-stretch overflow-hidden">
-      <TemplateSidebar mails={mails.data || []} />
+      <TemplateSidebar mails={mails.data || []} userId={user.id}/>
 
       <div className="grow overflow-y-auto">
         <div className="mx-auto w-full max-w-[700px] p-5">{children}</div>
