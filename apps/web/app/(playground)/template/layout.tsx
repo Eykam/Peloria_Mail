@@ -25,7 +25,6 @@ export default async function PlaygroundLayout(props: PlaygroundLayoutProps) {
   const mails = await supabase
     .from('mails')
     .select('*')
-    .eq('user_id', user.id)
     .order('created_at', { ascending: false });
 
   return (
