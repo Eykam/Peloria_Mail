@@ -45,7 +45,7 @@ export function SaveEmail() {
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- Result is always there
       const { error, data } = result!;
       if (error) {
-        toast.error(error.message?"You cannot update another user's template!" : 'Something went wrong');
+        toast.error(error.message || 'Something went wrong');
         return;
       }
 

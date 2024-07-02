@@ -9,6 +9,7 @@ import type { Database } from '@/types/database';
 import { duplicateEmailAction } from '@/actions/email';
 import { LogoutButton } from './auth/logout-button';
 import { buttonVariants } from './ui/button';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip';
 
 export type MailsRowType = Database['public']['Tables']['mails']['Row'];
 
@@ -64,7 +65,21 @@ export function TemplateSidebar(props: TemplateSidebarProps) {
                   className={"group relative flex items-center"}
                   key={template.id}
                 >
-                  {userId === template.user_id && <Star className='size-4 text-green-400'/>}
+                  {userId === template.user_id && <>
+                    <TooltipProvider>
+                      <Tooltip>
+                        <TooltipTrigger className="bg-transparent">
+                        <Star className='size-4 text-primary'/>
+                        </TooltipTrigger>
+                        <TooltipContent className="max-w-xs">
+                          <p className="text-sm text-gray-600">
+                            You own this template.
+                          </p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  </>
+                  }
                   <NextLink
                     className={cn(
                       'rounded-md px-2 py-1.5 pr-7 text-sm hover:bg-gray-100',
