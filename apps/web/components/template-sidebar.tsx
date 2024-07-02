@@ -2,7 +2,7 @@
 
 import NextLink from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
-import { FilePlus2 } from 'lucide-react';
+import { FilePlus2, Star } from 'lucide-react';
 import { toast } from 'sonner';
 import { cn } from '@/utils/classname';
 import type { Database } from '@/types/database';
@@ -61,9 +61,10 @@ export function TemplateSidebar(props: TemplateSidebarProps) {
             {mails.map((template) => {
               return (
                 <li
-                  className={cn("group relative flex items-center", userId === template.user_id && "bg-green-400/80")}
+                  className={"group relative flex items-center"}
                   key={template.id}
                 >
+                  {userId === template.user_id && <Star className='size-4 text-green-400'/>}
                   <NextLink
                     className={cn(
                       'rounded-md px-2 py-1.5 pr-7 text-sm hover:bg-gray-100',

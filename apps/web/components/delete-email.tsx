@@ -54,7 +54,7 @@ export function DeleteEmail(props: SaveEmailProps) {
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- Result is always there
       const { error } = result!;
       if (error) {
-        toast.error("You cannot delete another user's template!" || 'Something went wrong');
+        toast.error(error.message? "You cannot delete another user's template!" : 'Something went wrong');
         return;
       }
 
