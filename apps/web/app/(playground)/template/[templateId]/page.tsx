@@ -84,7 +84,7 @@ export default async function TemplatePage(props: TemplatePageProps) {
     formData.set('templateId', templateId);
 
     toast.promise(duplicateEmailAction(formData), {
-      loading: `Duplicating ${template?.title}...`,
+      loading: `Duplicating ${template.title}...`,
       success(data) {
         router.push(`/template/${data.data?.id}`);
         return 'Template Duplicated';
