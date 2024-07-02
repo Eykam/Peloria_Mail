@@ -470,7 +470,6 @@ export async function duplicateEmailAction(formData: FormData) {
     .select()
     .match({
       id: templateId,
-      user_id: user.id,
     })
     .single();
 
