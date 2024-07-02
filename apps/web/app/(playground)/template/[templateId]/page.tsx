@@ -19,7 +19,7 @@ import { DeleteEmail } from '@/components/delete-email';
 import { SendTestEmail } from '@/components/send-test-email';
 import { duplicateEmailAction } from '@/actions/email';
 import { toast } from 'sonner';
-import router from 'next/router';
+import { useParams, useRouter } from 'next/navigation';
 import { FilePlus2 } from 'lucide-react';
 
 export const dynamic = 'force-dynamic';
@@ -43,7 +43,8 @@ interface TemplatePageProps {
 }
 
 export default async function TemplatePage(props: TemplatePageProps) {
-  const { templateId } = props.params || {};
+  const { templateId } = props.params || {}; 
+  const router = useRouter();
 
   const cookieStore = cookies();
   const apiKey = cookieStore.get(MAILY_API_KEY)?.value;
@@ -111,20 +112,24 @@ export default async function TemplatePage(props: TemplatePageProps) {
           {/* <CopyEmailHtml /> */}
         </div>
         <div className="flex items-center gap-1.5">
-        {user.id === template.user_id ? <>
-          <UpdateEmail templateId={templateId} /> 
-          <DeleteEmail templateId={templateId} />
-        </>
-        : <button
-        className="absolute right-0 mr-1.5 hidden group-hover:block"
-        onClick={() => {
-          handleEmailDuplicate(template.id);
-        }}
-        type="button"
-      >
-        <span>Duplicate Template</span>
-        <FilePlus2 className="h-4 w-4 shrink-0" />
-      </button>}
+        { 
+          user.id === template.user_id ? 
+          <>
+            <UpdateEmail templateId={templateId} /> 
+            <DeleteEmail templateId={templateId} />
+          </>
+            : 
+          <button
+            className="absolute right-0 mr-1.5 hidden group-hover:block"
+            onClick={() => {
+              handleEmailDuplicate(template.id);
+            }}
+            type="button"
+          >
+            <span>Duplicate Template</span>
+            <FilePlus2 className="h-4 w-4 shrink-0" />
+          </button>
+        } 
           
         </div>
       </div>
