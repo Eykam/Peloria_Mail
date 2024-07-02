@@ -63,7 +63,6 @@ export default async function TemplatePage(props: TemplatePageProps) {
     .from('mails')
     .select('*')
     .eq('id', templateId)
-    .eq('user_id', user.id)
     .single();
 
   if (!template) {
