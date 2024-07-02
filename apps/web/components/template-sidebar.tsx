@@ -90,6 +90,7 @@ export function TemplateSidebar(props: TemplateSidebarProps) {
                   >
                     <span className="block truncate">{template.title}</span>
                   </NextLink>
+                  {userId !== template.user_id && 
                   <button
                     className="absolute right-0 mr-1.5 hidden group-hover:block"
                     onClick={() => {
@@ -97,8 +98,8 @@ export function TemplateSidebar(props: TemplateSidebarProps) {
                     }}
                     type="button"
                   >
-                    <FilePlus2 className="h-4 w-4 shrink-0" />
-                  </button>
+                    Copy
+                  </button>}
                 </li>
               );
             })}
