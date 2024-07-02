@@ -90,16 +90,16 @@ export function TemplateSidebar(props: TemplateSidebarProps) {
                   >
                     <span className="block truncate">{template.title}</span>
                   </NextLink>
-                  {userId !== template.user_id && 
+                
                   <button
-                    className="absolute right-0 mr-1.5 hidden group-hover:block"
+                    className="absolute right-0 mr-1.5 hidden group-hover:block text-xs font-semibold text-center"
                     onClick={() => {
                       handleEmailDuplicate(template.id);
                     }}
                     type="button"
                   >
                     Copy
-                  </button>}
+                  </button>
                 </li>
               );
             })}
