@@ -79,7 +79,7 @@ export default async function TemplatePage(props: TemplatePageProps) {
   let { content } = template;
   content = JSON.parse(content as string);
 
-  const handleEmailDuplicate = (templateId: string) => {
+  const handleEmailDuplicate = () => {
     const formData = new FormData();
     formData.set('templateId', templateId);
 
@@ -122,7 +122,7 @@ export default async function TemplatePage(props: TemplatePageProps) {
           <button
             className="absolute right-0 mr-1.5 hidden group-hover:block"
             onClick={() => {
-              handleEmailDuplicate(template.id);
+              handleEmailDuplicate();
             }}
             type="button"
           >
